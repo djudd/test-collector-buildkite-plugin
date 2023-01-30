@@ -101,7 +101,7 @@ fi
 matching_files=()
 while IFS=$'' read -r matching_file ; do
   matching_files+=("$matching_file")
-done < <("${FIND_CMD[@]}" . -path "${FILES_PATTERN}")
+done < <("${FIND_CMD[@]}" "${FILES_PATTERN}")
 
 if [[ "${#matching_files[@]}" -eq "0" ]]; then
   echo "No files found matching '${FILES_PATTERN}'"
