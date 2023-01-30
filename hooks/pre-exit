@@ -42,6 +42,7 @@ upload() {
     "-X" "POST"
     "--silent"
     "--show-error"
+    "--http1.1"
     "--max-time" "${TIMEOUT}"
     "--form" "format=${format}"
     "--form" "data=@\"$file\""
@@ -57,6 +58,7 @@ upload() {
   )
 
   if [[ "$DEBUG" == "true" ]]; then
+    curl_args+=("-v")
     curl_args+=("--form" "run_env[debug]=$DEBUG")
   fi
 
